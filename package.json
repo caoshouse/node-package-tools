@@ -1,6 +1,6 @@
 {
   "name": "node-package-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/caoshouse/node-package-tools#readme",
   "description": "Autogenerates README.md",
   "repository": "github:caoshouse/node-package-tools.git",
@@ -12,10 +12,10 @@
     "prepare": "npm run readme:build"
   },
   "keywords": ["NODEJS","PACKAGE"],
-  "author": "caoshouse",
+  "author": "caoshouse (https://github.com/caoshouse/)",
   "license": "MIT",
   "contributors": [
-    "caoshouse <caoshouse@gmail.com> (https://github.com/caoshouse/)"
+    "caoshouse (https://github.com/caoshouse/)"
   ],
   "dependencies": {
     "handlebars": "^4.7.7",
