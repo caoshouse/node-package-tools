@@ -1,0 +1,55 @@
+{
+    "style": [
+        {
+            "@type": "document",
+            "@value": "assets/normalize.css"
+        },
+        {
+            "@type": "document",
+            "@value": "assets/main.css"
+        }
+    ],
+    "badges":[
+        {
+            "@type":"object",
+            "@value":{
+                "src":"https://badgen.net/npm/v/{{name}}",
+                "title":"NPM Version"
+            }
+        },
+        {
+            "@type":"object",
+            "@value":{
+                "src":"https://badgen.net/npm/license/{{name}}",
+                "title":"NPM License"
+            }
+        },
+        {
+            "@type":"object",
+            "@value":{
+                "src":"https://badgen.net/npm/types/{{name}}",
+                "title":"NPM Types"
+            }
+        }
+    ],
+    "install": "npm install --save-dev {{name}}",
+    "description": {
+        "@type": "document",
+        "@value": "description.hbs"
+    },
+    "logoImage": {
+        "@type": "image",
+        "@value": "assets/128px-Node.js_logo.svg.png"
+    },
+    "logo":{
+        "src":"{{logoImage}}",
+        "title":"NPM Logo"
+    },
+    "examples": [
+        "console.log('{{name}}')",
+        {
+            "@type": "document",
+            "@value": "assets/example1.ts"
+        }
+    ]
+}

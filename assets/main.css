@@ -1,0 +1,158 @@
+html,
+body {
+    color: #aac;
+    background: #223;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+html {
+    background: #1a1a2a;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .2);
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, .5)
+}
+
+body {
+    width: 900px;
+    max-width: 100%;
+    margin: 2em auto;
+    padding: 0;
+    border-radius: 4px;
+}
+
+p {
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+a {
+    color: #68a063;
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+pre {
+    margin: 0 0 1em 0;
+    padding: 0;
+    width: auto
+}
+
+pre code {
+    display: block;
+    border: none;
+    border-radius: 4px;
+    padding: 1em;
+    background: #001;
+    color: #99a;
+    overflow: auto;
+    width: 100%;
+}
+
+img {
+    border-radius: 4px
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    line-height: 1;
+    color: #cce;
+}
+
+h1 {
+    font-size: 2.5em
+}
+
+h2 {
+    font-size: 2em
+}
+
+h3 {
+    font-size: 1.5em
+}
+
+h4 {
+    font-size: 1em
+}
+
+hr {
+    display: block;
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #fff;
+    opacity: .2
+}
+
+#mainHeader {
+    padding: 2em;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    float: none;
+    clear: both;
+}
+
+#mainHeader #logo {
+    float: left;
+    padding:0 2em 0 0
+}
+
+#mainHeader #logo img {
+    height: 100px
+}
+
+#main {
+    padding: 2em
+}
+
+#mainFooter {
+    padding: 2em;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    opacity: .5;
+    font-style: italic;
+    text-align: right;
+}

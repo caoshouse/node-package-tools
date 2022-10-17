@@ -1,0 +1,38 @@
+{
+  "name": "node-package-tools",
+  "version": "1.0.0",
+  "homepage": "https://github.com/caoshouse/node-package-tools#readme",
+  "description": "Autogenerates README.md",
+  "repository": "github:caoshouse/node-package-tools.git",
+  "private": false,
+  "main": "./dist/main.js",
+  "scripts": {
+    "readme:build": "node -e \"require('./dist/main.js').PackageConverter.getPackage('./').loadTemplateFromFile('./READMETemplate.hbs').saveMD('README.md')\"",
+    "docs:build": "node -e \"require('./dist/main.js').PackageConverter.getPackage('./').loadTemplateFromFile('./READMETemplate.hbs').saveHTML('docs/README.html')\"",
+    "prepare": "npm run readme:build"
+  },
+  "keywords": ["NODEJS","PACKAGE"],
+  "author": "caoshouse",
+  "license": "MIT",
+  "contributors": [
+    "caoshouse <caoshouse@gmail.com> (https://github.com/caoshouse/)"
+  ],
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "hosted-git-info": "^6.0.0",
+    "jsdom": "^20.0.1",
+    "mime-types": "^2.1.35",
+    "node-html-markdown": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^20.0.0",
+    "@types/node": "^18.7.21",
+    "@types/hosted-git-info": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "typescript": "^4.8.4"
+  },
+  "types": "./dist/main.d.ts",
+  "bugs": {
+    "url": "https://github.com/caoshouse/node-package-tools/issues"
+  }
+}

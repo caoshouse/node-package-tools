@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>node-package-tools ver. 1.0.0</title>
+    <style>
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+ html {
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+  }
+  
+  /* Sections
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /**
+   * Remove the margin in all browsers.
+   */
+  
+  body {
+    margin: 0;
+  }
+  
+  /**
+   * Render the &#x60;main&#x60; element consistently in IE.
+   */
+  
+  main {
+    display: block;
+  }
+  
+  /**
+   * Correct the font size and margin on &#x60;h1&#x60; elements within &#x60;section&#x60; and
+   * &#x60;article&#x60; contexts in Chrome, Firefox, and Safari.
+   */
+  
+  h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  /* Grouping content
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+  
+  hr {
+    box-sizing: content-box; /* 1 */
+    height: 0; /* 1 */
+    overflow: visible; /* 2 */
+  }
+  
+  /**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd &#x60;em&#x60; font sizing in all browsers.
+   */
+  
+  pre {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  
+  /* Text-level semantics
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /**
+   * Remove the gray background on active links in IE 10.
+   */
+  
+  a {
+    background-color: transparent;
+  }
+  
+  /**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+  
+  abbr[title] {
+    border-bottom: none; /* 1 */
+    text-decoration: underline; /* 2 */
+    text-decoration: underline dotted; /* 2 */
+  }
+  
+  /**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+  
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  
+  /**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd &#x60;em&#x60; font sizing in all browsers.
+   */
+  
+  code,
+  kbd,
+  samp {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  
+  /**
+   * Add the correct font size in all browsers.
+   */
+  
+  small {
+    font-size: 80%;
+  }
+  
+  /**
+   * Prevent &#x60;sub&#x60; and &#x60;sup&#x60; elements from affecting the line height in
+   * all browsers.
+   */
+  
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+  /* Embedded content
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /**
+   * Remove the border on images inside links in IE 10.
+   */
+  
+  img {
+    border-style: none;
+  }
+  
+  /* Forms
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+  
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+  }
+  
+  /**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+  
+  button,
+  input { /* 1 */
+    overflow: visible;
+  }
+  
+  /**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+  
+  button,
+  select { /* 1 */
+    text-transform: none;
+  }
+  
+  /**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+  
+  button,
+  [type&#x3D;&quot;button&quot;],
+  [type&#x3D;&quot;reset&quot;],
+  [type&#x3D;&quot;submit&quot;] {
+    -webkit-appearance: button;
+    appearance: button;
+  }
+  
+  /**
+   * Remove the inner border and padding in Firefox.
+   */
+  
+  button::-moz-focus-inner,
+  [type&#x3D;&quot;button&quot;]::-moz-focus-inner,
+  [type&#x3D;&quot;reset&quot;]::-moz-focus-inner,
+  [type&#x3D;&quot;submit&quot;]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+  
+  /**
+   * Restore the focus styles unset by the previous rule.
+   */
+  
+  button:-moz-focusring,
+  [type&#x3D;&quot;button&quot;]:-moz-focusring,
+  [type&#x3D;&quot;reset&quot;]:-moz-focusring,
+  [type&#x3D;&quot;submit&quot;]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+  
+  /**
+   * Correct the padding in Firefox.
+   */
+  
+  fieldset {
+    padding: 0.35em 0.75em 0.625em;
+  }
+  
+  /**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from &#x60;fieldset&#x60; elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    &#x60;fieldset&#x60; elements in all browsers.
+   */
+  
+  legend {
+    box-sizing: border-box; /* 1 */
+    color: inherit; /* 2 */
+    display: table; /* 1 */
+    max-width: 100%; /* 1 */
+    padding: 0; /* 3 */
+    white-space: normal; /* 1 */
+  }
+  
+  /**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   */
+  
+  progress {
+    vertical-align: baseline;
+  }
+  
+  /**
+   * Remove the default vertical scrollbar in IE 10+.
+   */
+  
+  textarea {
+    overflow: auto;
+  }
+  
+  /**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   */
+  
+  [type&#x3D;&quot;checkbox&quot;],
+  [type&#x3D;&quot;radio&quot;] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+  }
+  
+  /**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   */
+  
+  [type&#x3D;&quot;number&quot;]::-webkit-inner-spin-button,
+  [type&#x3D;&quot;number&quot;]::-webkit-outer-spin-button {
+    height: auto;
+  }
+  
+  /**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   */
+  
+  [type&#x3D;&quot;search&quot;] {
+    -webkit-appearance: textfield; /* 1 */
+    appearance: textfield;
+    outline-offset: -2px; /* 2 */
+  }
+  
+  /**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+  
+  [type&#x3D;&quot;search&quot;]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  /**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to &#x60;inherit&#x60; in Safari.
+   */
+  
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1 */
+    appearance: button;
+    font: inherit; /* 2 */
+  }
+  
+  /* Interactive
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+  
+  details {
+    display: block;
+  }
+  
+  /*
+   * Add the correct display in all browsers.
+   */
+  
+  summary {
+    display: list-item;
+  }
+  
+  /* Misc
+     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+  
+  /**
+   * Add the correct display in IE 10+.
+   */
+  
+  template {
+    display: none;
+  }
+  
+  /**
+   * Add the correct display in IE 10.
+   */
+  
+  [hidden] {
+    display: none;
+  }
+    </style>
+    <style>
+        html,
+body {
+    color: #aac;
+    background: #223;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+html {
+    background: #1a1a2a;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .2);
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, .5)
+}
+
+body {
+    width: 900px;
+    max-width: 100%;
+    margin: 2em auto;
+    padding: 0;
+    border-radius: 4px;
+}
+
+p {
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+a {
+    color: #68a063;
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+pre {
+    margin: 0 0 1em 0;
+    padding: 0;
+    width: auto
+}
+
+pre code {
+    display: block;
+    border: none;
+    border-radius: 4px;
+    padding: 1em;
+    background: #001;
+    color: #99a;
+    overflow: auto;
+    width: 100%;
+}
+
+img {
+    border-radius: 4px
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    line-height: 1;
+    color: #cce;
+}
+
+h1 {
+    font-size: 2.5em
+}
+
+h2 {
+    font-size: 2em
+}
+
+h3 {
+    font-size: 1.5em
+}
+
+h4 {
+    font-size: 1em
+}
+
+hr {
+    display: block;
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #fff;
+    opacity: .2
+}
+
+#mainHeader {
+    padding: 2em;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    float: none;
+    clear: both;
+}
+
+#mainHeader #logo {
+    float: left;
+    padding:0 2em 0 0
+}
+
+#mainHeader #logo img {
+    height: 100px
+}
+
+#main {
+    padding: 2em
+}
+
+#mainFooter {
+    padding: 2em;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    opacity: .5;
+    font-style: italic;
+    text-align: right;
+}
+    </style>
+</head>
+
+<body>
+    <header id="mainHeader">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABOCAYAAADo3B4PAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH4QgZFwcBLYIi9wAAEYVJREFUeNrtXXl0FFW6/323qhMCSRAQHJQHDOqoxIGkq4HHqAM6uKPjqM3ziKPZIAQPGBTBbcbWkU2RoCgkIekG1PFJXEYYlxmBwXHwienuAApuzww8NtkC2Xuput/7ozuIIUsn3Qkh6d85fcKpunXr1vf97rfcDQVRRByapj1//vnn5w4cOHDvwYMHv+3MbRVRdbULhgEYTkTrLBbLpykpKWOjBOimYOaxQogtmqatHT169M+jBOieIABWwzC+1jTtBU3TekcJ0D0RA2AmgF3JyclDowTovjhfCHFblADd2ScQxUYJEEWUAFFECRBFlABRRAkQRZQAUUQJEEWUAFFECRBFlABRdAzU1j4wYsSIXqqq3iyE2OV0Or88Uw23rrXGq7WeIa+nrt/ZCTqRPJMNCOpksNvt/hoAtxcByGw2TyaiBQAGMbPUNG0NgMdcLtfBjvrY8bbx6rCh/V7uzfGZHNtLTF5+x+E6n9/6ds66f3ak0MeOHdvX5/PZAGQA+IqZ57jd7k0d2Ybx48erVVVV2QBsAPqazeZPmfmB0tJSZ8hKDaWQpmljALwAYEwjt6uZeUFiYuKSzZs3e9rzg1PX3JLTu1fi/B5KbBwbAobBqK31wuvTUev3fuZT6fa3s94+2N5Cr6yszCKipwD0a3D7HWZ+HEAhEf2qhaoecblci9raDrPZfD0RLQEwvMEtSUSrieixkpKSH8IiQEpKyvmKojzJzJkhxAv7iOhxp9P5SmvNUEu4y37TmMSE2D/36RU/TEgVUifUE0AaBqqqvQAAg6VR66td88aA9VMwCUaklW82m68hoqUAfhmB6tpEgOTk5IsVRZkHwNpC0RoiWhwfH7+wuY5JTZi3OJ/PNxPA4wASWtnGrcyc43a7PwtXQr9fc90AJVZZe07vnuNUmKBIE04jgJTweP3weXUQEYQg+KReU+v3zF47fV1ehBR/ERHND0Ho7UaA5OTkcxRFeQRADoDWTCV/D+BRl8tVHBIBzGbzLUT0IoChYXwcM/OriqLMCcUMnf40xD1vXrc4IUGdEauYVMEBxTdFAEMGXAFLhhAUIAIRanXvPp+/7r/++/73Pm3LRyQlJcXHxcXNZuZHWin0SBJAWCyWe5j5WQDnhfG+Tcw8y+1272iUAGazWQuatysj+JEhmaFTMfmNG+7rGc/LYnoiIaB0FaEQwOc34PP4IYhAgiAIIEEAGNVe72eG4r/t9SnrDoUa2UdI6GERQNO0qwHkAhgZoXfqRGQ3DOOJ0tLSIwBAY8aMOU/X9WcB3NOO4wJlRPSg0+l8t6kCd792sxaXYKztkcDDTmqhFQQwpITX44c0TrECgk4SwpDSqPHWFb2a9XY2qOm0bdSoUeOklEsBJLdzEN8kAUaNGjWMmZ9j5tvb6d3HmPnJxMTEfKHr+nsA7m3nQaFhzPxOSkrKbxrN6ZfeegkxPjlV+W2ByaTU+5+TPxn8qwihnNMzfuodyye+1YyvXySl3NwBym8u3rhMSrm9HZUPAP2I6KWqqqrVAoDWQd9GRGRu9IZKEzzlSpzuofBfIugnBGBmsAz8rfP7cKSyIrmZ9uV0gsG5awDEd9C7buksQ8GKEITqH0zhV6SKYK9Hgx/jYEU5wFCayYhizrQgiEjpULm3Mmc3mDkfgEZE9wL4d2SaAZBg+GoJvuoIcLLeCsgfrUCN14NqT12kBbifiGYAeP8McqYCwMMAJgJwtfbh1gwFN0wj3OPHjy+uqqqaBeCxsMyWkAADxISawypi4n1h9iJAlzpUoUJwYKD+UOWJSAq9DsBiv9+/aMeOHTUAXrJYLDcy8xIAl3aQ4g0iKjo1ogfwgcViSWXmeQB+FkodatACtOR8F7pcrkcbXgymdgs0TVsLoARAnxbMW+PWRiBopwHdD3gqBHr0Dm9+RYeEYAligSpvHbyGP1KC/wuAB1wu1/+detHpdH6gadoGANMBzAfQsx2Vv1sI8buSkpJtAJDtyLBK8DhDFwsLpxTar7jiimKPx/NSMLhvTh9vhmRvhRCvNnff5XJ9D+B/2mwAFAMkAAgGBKPmmAoOdzCZgDrDB2kwKjw1UEhAEQJE4QWaUsqchso/RQ5+l8v1AoAt7dn1mXlTSUnJtmmO1KHTHBkfM7CWQPebVP4625H+8JYtW6oArGymikNElOF0OjNFiC/UQygWShdrWq2CQYJBApCSUXs8/FhAlwYqfTX1aSAECQjRIXEvt2fl9ZaUSfwawK9PeWkvBs1qQUcvArjE6XTaAUgVnQH1LoAIYAYxcGifH3HxMYEwNQx4pQ4hBJgZBIY4s1P3ZwzMvCE4VbyrYRDIZ54AEsQEMMAE+H2MmhovDu1nDP4PU0Q6oxIkgWQ66y3Aj/5IVOD0sKoyaCV8HPCjXwWD97811fc6wShAsCWCQcSorAqka8cO+eD1hN9jDWkEzH8wDuiIdL6d648DgPz0wnfB9BsAO0DQmbnAxPKqYFBaIqUcB2BkU8rvRBYAIAQGb+pqdPi8RtBsAQf21+LCYeFNxElm+A0dsaoJMszoUgixeOTIkTnbt2/f3/Ce1WpVysrKpgK4op0lNslisexn5nl56YWbbDabdnjwnoHL0x17T7VCpaWl/wxB9B3ripoLAgGg8sRPxwCOl/tQXR1+Cufx+066gjBxp6qq32qatjApKenk2IemaVeXlZW5ASwH0Kud5agy88MAvtc07YGdO3dyA+W3LvzqDDEABKOy0gfDOL05+/ZWRYB5gbmACLmAngDm9ujRY6emadmapr0DYBOAER0suX4AlpaVlbmCU8dtIgB1VGubGggSCmAYjOqKxnt6dY0f5SfCH8b16j7ohhHJhR2Dgz3+tjPchUYC2KRp2npN0y6MtAWQQoijIdR1OAwLcOLEEV+zLdl3oBLM4RurGl9dz2bck6+jNMbM3iauV4ZR7UQAOy0Wy7NjxoxJjAQBypn5vs8///xYi05JVf9ARBvb0uqKHzzrpYFml455PDoOHQ3PFShEMkZRFjRDgBUdpP/9Usq/NBrex8W9BeCjMOqOZeaHdV3/zmw2T7FarUpbXIBORAVSykvdbverobx169ath5xO5wQhxLUAGt2sIaVslGzvTf/X8Q0PfjwwsY+Yq8ZQk0vH9h6qgG60Pi0kALExpu2JMX2GfjB74/ymyrlcrhwp5QQAX7ST4utH4pK2bdu2u7ECW7ZsqXK5XNcx860ILOhsKwYQUUFZWdkXZrP5htZYgPeZeYTT6cw6ZZYpZJSUlGzweDxmAA8BONGaZ/+a/fGzsp/oE99beVVpZMhO1w3sP3K8dd5FofIe8aZbP5q9Kfndh95tMVIuLS3dmJCQYEbgOLfyCCr/XWYe7nK5HnC5XBUtFXa73esrKiqSEJjqrQjjvZcR0QcWi+XxRjuHpmkeBFa87mLmh9xu94eR+mJN084F8BSAqcHUZZbb7V4ayrM3vnjNhQbLtzy1xshTKSoEIeXCITCJ2NPWBEoj8G+/rqNOen269M1/M/v9p9ra/tGjR/eTUj7FzFlowza6IL4UQswqKSnZ0NZ2pKSk9BdCPA1gSnDYrLU4wMwZjemWNE17kZm/SUxMzN+8ebPeHnZv1KhRSYZhzBVC5DqdztJWRTV5V9/krTNWeeu4f/21c3sn4qKfDWyUALo02Mu+D+vixaTiScXVkWq/lDIXwLWteOwYgD8mJCQUREquFovl8uCag1DbUQ3gOb/f/3xw3UKj7vGswMQV4+bU1uBp3SdjCYSkIYMRZ4o9SQBdSvjY81WNYtz++t1vfd1SfdmOzP9kIQeSGrt5xeQVx0MkwgQp5Qs4fTtWw/jJ3mChRqQ71IQgIS9vKnNj5teIaG5L+zbPGgIAgPXl8fFVBv/ZU8cT42Pi6JILBgV2BsFb7odvSuFdb77dUh1THVMvFWwsAeHGoASqwfS8qSpuwbKZy7whuDUTAos+ngLQu8E4x0YAOR2xazq4RzGdiJ4B0P+UNHIDgIcabgDpEgSox82F4y/31/ArF/Tuf1FsL5GbZ137xxYVnz/1XCVG/onB9X60loF/E5AUzAG/BTA7P61ofShtGDFixACTyfQMgPsA/C+AOS6X672OlkVwl/JsABdLKfNKS0tblYqflQRoDabmTzUpsTKNwfPAODfw1fxXsJyRl7pqT/aqjDsZeA7AkOAjGyWMWQVpq0JKBZOSkmJ27tzpO1vl06UJkG1PnyCJltb3cgAuKTmnIMP+rwYk6anEGDOY8AQY8SDoLNkeA35iWbrjSFeWUZckQHZR+iVS0PME3By8dJCIbOftHlRos9maHEnKXJk5SFV5PgLb5AjAcQIWHe1VmVs8qdgXJUBnV/xr2X2kzzeXgFkIbPLwgTnPFOP9w7J7Xgt5jH3a6ozRMLAUhPr/6uUbBj2Yn1Z42vr/Gfa0/lKoA/rvvuCr5sgVJUA7Y5o9IwuEeag/tYP4TV2IOYX3FrZp84rNZhM/DNmbCuDHNfaMdbpB9xdOKdwHAFmOjBsE+JdgOg7i+DrIvFVpqzxnk9y6xClh2faMTBDyAPRjYBuxHJ+Xare2VflBAsi8tCK7T/IvGFgEwAvCrYrKG202mxok2QBJlCjBowxVfSOW1Ylnm+y6xjFxhDuCf3PLe1VaVqQ7Po5U1fYMe1V+WtEjxDwcQDkBvzgweM+IgP4D8hOCjql+v3o2ik7tCvqXjFgigCVtLZ5UfNrZQFOL0q9UBF3BoK15aYWbAcC61hrTrybhbmJxNROGMLg3AUcAHGDiTexVXy/IKji5QmVFur1smiP9MEB9hRBxAY8g9pPkeCj8PRP9vrxXxeKoBeiEUBT6LQMLGfLOYLR/Xr+axBKAHEx8L8DjKHAmwLUA7iOm1SLGcGauzGz2dJD8tMKPpF95hfz03YpU+4KzMVNQ0Q2hqrwQgfV75QReKIncAnQCUvZhElcCmAPwCFXlJQAmN1dXQVZBBYAKZJ6lskD3xNXBqP6ZFen23Ab3NmTbM/cwwQ7gdpvNptpsNr2rCqKbnhXMdcEo/vrpazIva3i3jvTXifE0EXIrhu80dWVJdEsLwExriDAfoOulwbumOTLKwfiGiHYB8kuG2HY0vuLpxgLKqAXoAshPK1rI4JlgfBW81BeEsQzOYFAuwP/oV5u4e5ojfUqUAF0RBM5Psy/LSy8arhgYKoivZ/BMBM5D/giAF4xBAOVnOzKvirqALoQse9pwImED88G8dPsDL2cW7QGwB8Df68vMsKf195MoATCEma8H8EnUAnSVMQFVYQBWEM1sLAAEgGVpjqMAaoKBoj9qAboQjvSo+LZfTeJ3AC6WBn+Q5Uh/XmHF5VdwNIZhMiQGwcHpIB4OgAWU97uyPLqdBSieVGywZCuAvQCGEOhFSXKLIuU3BssvQfJDEE8CIAl4dHnaypIoAbpaFpBh3y5qY4cTURaAYgDbAewGsAvARyDkShjJK9KKFnV1WXQJFyAIhxkAkZyZZU/7Ij/d8ZNzcFgyocHpYMvvX14NoCD4axZT86eaKMaYDuBCAJBQfohagE4EKXkxgCqAfkVCbJ+2KmNZRmFG34D2QSBKDmR/aPX6vixHxg0iRt9BwFIAJgCrC1ILvu8qBOgyK4Iy12T+XJXyWTDdGbxUQcBGDqyZvyrABdyYn1YU0ta37KL0S1jQEgA3BS8dBPixvFT7alAnOFQjSoAmFGdPG8dCLAbD0uBD31iRVnRXS8/nOFLPqYP6JIHvD/Z4DxFyqSZ2ftBtdCl02WXhWUXpFhBdCwCKYNfyVPvfmytvXWtV+tYkTCGiP53cPwC8pSv0cDhLy6IE6CyWwZF5FcA5TDjg1/FkUWbRya3f0+yZ14A4Fz+e8bMdoJz61UNdGd2CANa11pi+tYlFxJgMgEA4SqDHSeATqWMeiH8XLHqEiJ442rOiqDvMBHYrCwAA0x1TRknIlwCMbnDLD+YVPUg+uTRt1YnuJJNuRYAffX1iFgFPADiPgXVSiLkr71v5Lboh/h/U3CErW9pU6wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wOC0yNVQyMzowNzowMSswMDowMKBriXUAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDgtMjVUMjM6MDc6MDErMDA6MDDRNjHJAAAAAElFTkSuQmCC" title="NPM Logo" width="200">
+        <h2>node-package-tools ver. 1.0.0</h2>
+        <div id="badges">
+                <img src="https://badgen.net/npm/v/node-package-tools" title="NPM Version">
+                <img src="https://badgen.net/npm/license/node-package-tools" title="NPM License">
+                <img src="https://badgen.net/npm/types/node-package-tools" title="NPM Types">
+        </div>
+    </header>
+
+    <section id="main">
+        <p>Automatic README.md generation for your package<br>
+You can optionally add a package2md.json file in the root folder of your project.</p>
+
+        <h3>Home page</h3>
+        <a href="https://github.com/caoshouse/node-package-tools#readme">https://github.com/caoshouse/node-package-tools#readme</a>
+
+        <h3>Repository</h3>
+        <a href="https://github.com/caoshouse/node-package-tools">https://github.com/caoshouse/node-package-tools</a>
+
+
+        <h3>Installation</h3>
+        <pre><code>npm install --save-dev node-package-tools</code></pre>
+
+        <h3>Bugs</h3>
+        <a href="https://github.com/caoshouse/node-package-tools/issues">https://github.com/caoshouse/node-package-tools/issues</a>
+
+        <h3>Examples</h3>
+        <pre><code>console.log('node-package-tools')</code></pre>
+        <pre><code>import fs from 'fs'
+export function createReadme(packagePath: string, template: string = defaultTemplate) {
+    const pkg = ModifiedPackage.getPackage(packagePath)
+    console.log(Object.keys(ModifiedPackage._modules))
+    fs.writeFileSync(path.join(packagePath, 'README.md'), hogan.compile(template).render(pkg))
+}
+</code></pre>
+
+        <h3>Dependencies</h3>
+        <ul>
+            <li><a href="https://github.com/wycats/handlebars.js.git">handlebars: 4.7.7</a> Handlebars provides the power necessary to let you build semantic templates effectively with no frustration
+                (by
+                
+                    Yehuda Katz
+                    
+                )
+            </li>
+            <li><a href="https://github.com/npm/hosted-git-info.git">hosted-git-info: 6.0.0</a> Provides metadata and conversions from repository urls for GitHub, Bitbucket and GitLab
+                (by
+                
+                    GitHub Inc.
+                    
+                )
+            </li>
+            <li><a href="https://github.com/jsdom/jsdom">jsdom: 20.0.1</a> A JavaScript implementation of many web standards
+            </li>
+            <li><a href="https://github.com/jshttp/mime-types">mime-types: 2.1.35</a> The ultimate javascript content-type utility.
+            </li>
+            <li><a href="git+ssh://git@github.com/crosstype/node-html-markdown.git">node-html-markdown: 1.2.0</a> Fast HTML to markdown cross-compiler, compatible with both node and the browser
+                (by
+                <a href="http://twitter.com/ron">
+                    Ron S.
+                    </a>
+                )
+            </li>
+        </ul>
+
+        <h3>devDependencies</h3>
+        <ul>
+            <li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped.git">@types/jsdom: 20.0.0</a> TypeScript definitions for jsdom
+            </li>
+            <li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped.git">@types/node: 18.8.5</a> TypeScript definitions for Node.js
+            </li>
+            <li><a href="https://github.com/DefinitelyTyped/DefinitelyTyped.git">@types/hosted-git-info: 3.0.2</a> TypeScript definitions for hosted-git-info
+            </li>
+            <li><a href="https://github.com/typescript-eslint/typescript-eslint.git">@typescript-eslint/eslint-plugin: 5.40.0</a> TypeScript plugin for ESLint
+            </li>
+            <li><a href="https://github.com/Microsoft/TypeScript.git">typescript: 4.8.4</a> TypeScript is a language for application scale JavaScript development
+                (by
+                
+                    Microsoft Corp.
+                    
+                )
+            </li>
+        </ul>
+
+
+        <h3>Contributors</h3>
+        <ul>
+            <li>
+                <a href="https://github.com/caoshouse/">caoshouse</a>
+            </li>
+        </ul>
+    </section>
+    <footer id="mainFooter">
+        <p align="right">
+            Generated by
+            <a href="">
+                
+            </a>
+        </p>
+    </footer>
+</body>
+
+</html>
