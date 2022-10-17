@@ -33,7 +33,7 @@
         }
     ],
     "install": "npm install --save-dev {{name}}",
-    "description": {
+    "_description": {
         "@type": "document",
         "@value": "description.hbs"
     },
@@ -45,7 +45,7 @@
         "src":"{{logoImage}}",
         "title":"NPM Logo"
     },
-    "examples": [
+    "_examples": [
         "console.log('{{name}}')",
         {
             "@type": "document",

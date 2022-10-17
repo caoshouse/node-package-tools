@@ -1,6 +1,6 @@
 {
   "name": "node-package-tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/caoshouse/node-package-tools#readme",
   "description": "Autogenerates README.md",
   "repository": "github:caoshouse/node-package-tools.git",
