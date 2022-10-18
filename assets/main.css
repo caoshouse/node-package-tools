@@ -1,6 +1,6 @@
 html,
 body {
-    color: #aac;
+    color: #cce;
     background: #223;
     display: block;
     width: 100%;
@@ -100,7 +100,7 @@ h5,
 h6 {
     font-weight: inherit;
     line-height: 1;
-    color: #cce;
+    color: inherit;
 }
 
 h1 {

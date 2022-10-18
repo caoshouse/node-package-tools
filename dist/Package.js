@@ -27,7 +27,6 @@ class Package {
         }
         pkg = (0, normalize_1.normalize)(pkg);
         Object.keys(pkg).forEach(k => {
-            //normalize.[k] && (pkg[k] = normalize.[k](pkg[k]))
             this._origData[k] = pkg[k];
             Object.defineProperty(this, k, {
                 get: () => pkg[k],

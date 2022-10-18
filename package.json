@@ -11,13 +11,17 @@
     "docs:build": "node -e \"require('./dist/main.js').PackageConverter.getPackage('./').loadTemplateFromFile('./READMETemplate.hbs').saveHTML('docs/index.html')\"",
     "prepare": "npm run readme:build"
   },
-  "keywords": ["NODEJS","PACKAGE"],
+  "keywords": [
+    "NODEJS",
+    "PACKAGE"
+  ],
   "author": "caoshouse (https://github.com/caoshouse/)",
   "license": "MIT",
   "contributors": [
     "caoshouse (https://github.com/caoshouse/)"
   ],
   "dependencies": {
+    "@npm/types": "^1.0.2",
     "handlebars": "^4.7.7",
     "hosted-git-info": "^6.0.0",
     "jsdom": "^20.0.1",
@@ -25,9 +29,9 @@
     "node-html-markdown": "^1.2.0"
   },
   "devDependencies": {
+    "@types/hosted-git-info": "^3.0.2",
     "@types/jsdom": "^20.0.0",
     "@types/node": "^18.7.21",
-    "@types/hosted-git-info": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "typescript": "^4.8.4"
   },

@@ -72,7 +72,6 @@ function normalize(pkg) {
         name: null,
         version: null,
         license: 'MIT',
-        licenses: [],
         repository: null,
         author: null,
         repositories: [],
@@ -82,9 +81,11 @@ function normalize(pkg) {
         contributors: [],
         devDependencies: {},
         dependencies: {},
-        bugs: null,
         funding: null,
-        files: null
+        files: null,
+        bundledDependencies: {},
+        bugs: null,
+        homepage: null
     };
     pkg = Object.assign({}, defaultFields, pkg);
     Object.keys(pkg).forEach(k => {
@@ -92,13 +93,15 @@ function normalize(pkg) {
             pkg[k] = normalizeHandlers[k](pkg[k]);
         }
     });
-    if (!pkg.licenses || !pkg.licenses.length) {
-        pkg.licenses = [pkg.license];
-    }
+    /*if (!pkg.licenses||!pkg.licenses.length) {
+        pkg.licenses = [pkg.license]
+    }*/
     if (!pkg.repositories || !pkg.repositories.length) {
         pkg.repositories = [pkg.repository];
     }
-    console.log(pkg);
+    if (pkg.bundleDependencies && !pkg.bundledDependencies) {
+        pkg.bundledDependencies = pkg.bundleDependencies;
+    }
     //writeFileSync('packageNormalized.'+(count++)+'.json',JSON.stringify(pkg))
     return pkg;
 }

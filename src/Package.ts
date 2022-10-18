@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
-
-import {normalize} from './normalize'
+import { FullMetadata } from './types'
+import { normalize } from './normalize'
 
 
 
@@ -10,7 +10,7 @@ import {normalize} from './normalize'
  */
 export class Package {
 
-    private _origData = {}
+    private _origData: Partial<FullMetadata> = {}
     private _path: string
 
     getOrigData() {
@@ -32,7 +32,7 @@ export class Package {
      */
     constructor(packagePath: string) {
         this._path = packagePath
-        let pkg: { [key: string]: any }
+        let pkg: FullMetadata
         try {
             pkg = JSON.parse(fs.readFileSync(path.join(packagePath, 'package.json')).toString())
         } catch (e) {
@@ -42,7 +42,6 @@ export class Package {
         pkg = normalize(pkg)
 
         Object.keys(pkg).forEach(k => {
-            //normalize.[k] && (pkg[k] = normalize.[k](pkg[k]))
             this._origData[k] = pkg[k]
             Object.defineProperty(this, k, {
                 get: () => pkg[k],

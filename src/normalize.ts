@@ -1,14 +1,10 @@
 
-import hostedGitInfo from 'hosted-git-info'
 
-export interface Person {
-    name: string,
-    url?: string,
-    email?: string
-}
+import hostedGitInfo from 'hosted-git-info'
+import { FullMetadata, License, Person, Repository } from './types'
 
 const normalizeHandlers = {
-    _person: (person: string | Person) => {
+    _person: (person: Person | string) => {
         person = person || { name: null, url: null, email: null }
         if ('string' === typeof person) {
             person = {
@@ -25,12 +21,12 @@ const normalizeHandlers = {
     author: (author: string | Person) => {
         return normalizeHandlers._person(author)
     },
-    contributors: (contributors: (string | Person)[]) => {
+    contributors: (contributors: Person[]) => {
         return contributors.map(person => {
             return normalizeHandlers._person(person)
         })
     },
-    repository: (repository: string) => {
+    repository: (repository: Repository) => {
         if ('string' === typeof repository) {
             const
                 hosted = hostedGitInfo.fromUrl(repository),
@@ -51,13 +47,13 @@ const normalizeHandlers = {
         }
         return repository
     },
-    repositories: (repositories) => {
+    repositories: (repositories: Repository[]) => {
         return repositories.map(repo => {
             return normalizeHandlers.repository(repo)
         })
     },
-    private: (isprivate) => { return !!isprivate },
-    license: (license) => {
+    private: (isprivate: boolean) => { return !!isprivate },
+    license: (license: License) => {
         if ('string' === typeof license) {
             return {
                 type: license,
@@ -66,18 +62,17 @@ const normalizeHandlers = {
         }
         return license
     },
-    licenses: (licenses) => {
+    licenses: (licenses: License[]) => {
         return licenses.map(lic => normalizeHandlers.license(lic))
     }
 }
 
 
-export function normalize(pkg) {
-    const defaultFields = {
+export function normalize(pkg: FullMetadata) {
+    const defaultFields: Partial<FullMetadata> = {
         name: null,
         version: null,
         license: 'MIT',
-        licenses: [],
         repository: null,
         author: null,
         repositories: [],
@@ -87,9 +82,11 @@ export function normalize(pkg) {
         contributors: [],
         devDependencies: {},
         dependencies: {},
+        funding: null,
+        files: null,
+        bundledDependencies: {},
         bugs: null,
-        funding:null,
-        files:null
+        homepage: null
     }
     pkg = Object.assign({}, defaultFields, pkg)
     Object.keys(pkg).forEach(k => {
@@ -97,13 +94,15 @@ export function normalize(pkg) {
             pkg[k] = normalizeHandlers[k](pkg[k])
         }
     })
-    if (!pkg.licenses||!pkg.licenses.length) {
+    /*if (!pkg.licenses||!pkg.licenses.length) {
         pkg.licenses = [pkg.license]
-    }
-    if (!pkg.repositories||!pkg.repositories.length) {
+    }*/
+    if (!pkg.repositories || !pkg.repositories.length) {
         pkg.repositories = [pkg.repository]
     }
-    console.log(pkg)
+    if (pkg.bundleDependencies && !pkg.bundledDependencies) {
+        pkg.bundledDependencies = pkg.bundleDependencies
+    }
     //writeFileSync('packageNormalized.'+(count++)+'.json',JSON.stringify(pkg))
     return pkg
 }
