@@ -1,6 +1,6 @@
 {
   "name": "node-package-tools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/caoshouse/node-package-tools#readme",
   "description": "Autogenerates README.md",
   "repository": "github:caoshouse/node-package-tools.git",
@@ -9,7 +9,8 @@
   "scripts": {
     "readme:build": "node -e \"require('./dist/main.js').PackageConverter.getPackage('./').loadTemplateFromFile('./READMETemplate.hbs').saveMD('README.md')\"",
     "docs:build": "node -e \"require('./dist/main.js').PackageConverter.getPackage('./').loadTemplateFromFile('./READMETemplate.hbs').saveHTML('docs/index.html')\"",
-    "prepare": "npm run readme:build"
+    "prepare": "npm run readme:build",
+    "qwerty":"node -e \"require('./dist/main.js').createHTML()\""
   },
   "keywords": [
     "NODEJS",

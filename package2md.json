@@ -9,6 +9,12 @@
             "@value": "assets/main.css"
         }
     ],
+    "script":[
+        {
+            "@type":"document",
+            "@value":"assets/main.js"
+        }
+    ],
     "badges":[
         {
             "@type":"object",

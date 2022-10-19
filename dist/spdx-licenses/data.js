@@ -1,9 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getApprovedLicenses = exports.getLicenses = exports.getAllIds = void 0;
-const licObj = {
-    'licenseListVersion': 'a8f83ee',
-    'licenses': [
+{
+    'licenseListVersion';
+    'a8f83ee',
+        'licenses';
+    [
         {
             'reference': 'https://spdx.org/licenses/xpp.html',
             'isDeprecatedLicenseId': false,
@@ -6257,17 +6256,6 @@ const licObj = {
             'isOsiApproved': true
         }
     ],
-    'releaseDate': '2022-10-13'
-};
-function getAllIds() {
-    return licObj.licenses.map(item => item.licenseId);
+        'releaseDate';
+    '2022-10-13';
 }
-exports.getAllIds = getAllIds;
-function getLicenses() {
-    return licObj.licenses;
-}
-exports.getLicenses = getLicenses;
-function getApprovedLicenses() {
-    return licObj.licenses.filter(item => item.isOsiApproved);
-}
-exports.getApprovedLicenses = getApprovedLicenses;

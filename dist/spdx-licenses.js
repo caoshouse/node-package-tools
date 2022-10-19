@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getApprovedLicenses = exports.getLicenses = exports.getAllIds = void 0;
 const licObj = {
     'licenseListVersion': 'a8f83ee',
     'licenses': [
@@ -6255,9 +6258,16 @@ const licObj = {
         }
     ],
     'releaseDate': '2022-10-13'
+};
+function getAllIds() {
+    return licObj.licenses.map(item => item.licenseId);
 }
-
-export function getAllIds() {
-    return licObj.licenses.map(item => item.licenseId)
+exports.getAllIds = getAllIds;
+function getLicenses() {
+    return licObj.licenses;
 }
-
+exports.getLicenses = getLicenses;
+function getApprovedLicenses() {
+    return licObj.licenses.filter(item => item.isOsiApproved);
+}
+exports.getApprovedLicenses = getApprovedLicenses;

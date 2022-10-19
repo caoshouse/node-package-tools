@@ -6,8 +6,13 @@
     <meta name="viewport">
     {{#each style}}
     <style>
-        {{this}}
+        {{{this}}}
     </style>
+    {{/each}}
+    {{#each script}}
+    <script>
+        {{{this}}}
+    </script>
     {{/each}}
 </head>
 
